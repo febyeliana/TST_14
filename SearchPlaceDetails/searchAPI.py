@@ -44,9 +44,6 @@ def searchapi(key,query,param='search'):
         elif param=='geometry':
             return details["result"]["geometry"]
 
-        # elif param=='city':
-        #     return details["result"]["address_components"][]    
-
         
     except err.ZeroResultError as e:
         message = {'results':
