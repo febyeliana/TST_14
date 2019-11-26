@@ -11,7 +11,7 @@ def getplace(key,query):
             'key':key,
             'query':query
         }
-        url = '127.0.0.1:1234/geometry'
+        url = 'http://localhost:1234/geometry'
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
@@ -24,7 +24,7 @@ def getweather(lat,lon):
             'lat':lat,
             'lon':lon
         }
-        url = '127.0.0.1:5000/weather'
+        url = 'http://localhost:5000/weather'
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
@@ -37,7 +37,7 @@ def getforecast(lat,lon):
             'lat':lat,
             'lon':lon
         }
-        url = '127.0.0.1:5000/forecast'
+        url = 'http://localhost:5000/forecast'
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
@@ -47,14 +47,22 @@ def getforecast(lat,lon):
 @app.route('/weather', methods=['GET'])
 def index():
     if request.method == 'GET' :
-        data= getplace(request.args.get('key'),request.args.get('body'))
+        data= getplace(request.args.get('key'),request.args.get('query'))
         lat = data['location']['lat']
         lon = data['location']['lng']
         res = getweather(lat,lon)
         return jsonify(res)
 
-# AIzaSyDYaa_ZG2qePyaEzKUyPyno9dOc3nNyySA
+@app.route('/forecast', methods=['GET'])
+def home():
+    if request.method == 'GET' :
+        data= getplace(request.args.get('key'),request.args.get('query'))
+        lat = data['location']['lat']
+        lon = data['location']['lng']
+        res = getforecast(lat,lon)
+        return jsonify(res)
+
+# AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ
 
 if __name__ == "__main__":
     app.run(port=5001)
-
