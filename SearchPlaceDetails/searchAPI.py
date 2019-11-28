@@ -49,9 +49,8 @@ def searchapi(key,query,param='search'):
         message = {'results':
         {
             'status_code':404,
-            'status':e.status,
             'message':e.msg,
-        }, 'html_attributions':[]
+        },'status':e.status, 'html_attributions':[]
         }
         return message
 
@@ -59,9 +58,9 @@ def searchapi(key,query,param='search'):
         message = {'results':
         {
             'status_code':429,
-            'status':e.status,
+            
             'message':e.msg,
-        }, 'html_attributions':[]
+        },'status':e.status, 'html_attributions':[]
         }
         return message
 
@@ -69,9 +68,9 @@ def searchapi(key,query,param='search'):
         message = {'results':
         {
             'status_code':401,
-            'status':e.status,
+            
             'message':e.msg,
-        }, 'html_attributions':[]
+        }, 'status':e.status,'html_attributions':[]
         }
         return message
 
@@ -79,9 +78,9 @@ def searchapi(key,query,param='search'):
         message = {'results':
         {
             'status_code':400,
-            'status':e.status,
+            
             'message':e.msg,
-        }, 'html_attributions':[]
+        }, 'status':e.status, 'html_attributions':[]
         }
         return message
     
@@ -89,9 +88,9 @@ def searchapi(key,query,param='search'):
         message = {'results':
         {
             'status_code':400,
-            'status':e.status,
+            
             'message':e.msg,
-        }, 'html_attributions':[]
+        }, 'status':e.status, 'html_attributions':[]
         }
         return message
 
@@ -99,8 +98,8 @@ def searchapi(key,query,param='search'):
         message = {'results':
         {
             'status_code':404,
-            'status':e.status,
+            
             'message':e.msg,
-        }, 'html_attributions':[]
+        }, 'status':e.status, 'html_attributions':[]
         }
         return message

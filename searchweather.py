@@ -1,9 +1,11 @@
 import requests
 from flask import request, Flask, jsonify
+from flask_cors import CORS
+
 
 app = Flask(__name__)
+CORS(app)
 app.config['DEBUG']=True
-
 
 def getplace(key,query):
     try:
@@ -13,10 +15,14 @@ def getplace(key,query):
         }
         url = 'http://localhost:1234/geometry'
         res = requests.get(url, params=param)
-        return res.json()
+        if (res["status"]=="OK"):
+            return res.json()
     except Exception as e:
-        res = "The Place Could Not Be Found" + e
-        return res
+        ret = {
+            "error" : e,
+            "message" : "The Place Could Not Be Found"
+        }
+        return ret
 
 def getweather(lat,lon):
     try:
