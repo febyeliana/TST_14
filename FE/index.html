@@ -49,26 +49,47 @@
           <input disabled type="text" id="hasil" class="form-control" data-provide="typeahead">
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-4 col-lg-3">
+          <h4>Temperature:</h4>
+          <input disabled type="text" id="suhu" class="form-control" data-provide="typeahead">
+      </div>
+    
+ 
+      <div class="col-sm-4 col-lg-3">
+          <h4>Pressure:</h4>
+          <input disabled type="text" id="tek" class="form-control" data-provide="typeahead">
+      </div>
+  
+    
+      <div class="col-sm-4 col-lg-3">
+          <h4>Humidity:</h4>
+          <input disabled type="text" id="lembab" class="form-control" data-provide="typeahead">
+      </div>
+    </div>
     <br>
 
     <div class="row">
       <div class="col-sm-12 col-lg-12">
         <h4>Forecast</h4>
-        <div class="row">
-          <div class="col-sm-6 col-lg-6">
+        <!-- <div class="row">
+          <div class="col-sm-6 col-lg-6"> -->
             <table class="table table-striped" data-effect="fade">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Date and Time</th>
                   <th>Weather</th>
+                  <th>Temperature</th>
+                  <th>Pressure</th>
+                  <th>Humidity</th>
                 </tr>
               </thead>
               <tbody id="forecastTable">
               </tbody>
             </table>
-          </div>
-        </div>
+          <!-- </div>
+        </div> -->
       </div>
     </div>
   </div>
