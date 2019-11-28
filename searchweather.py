@@ -13,14 +13,14 @@ def getplace(key,query):
             'key':key,
             'query':query
         }
-        url = 'http://localhost:1234/geometry'
+        url = 'http://localhost:1234/search'
         res = requests.get(url, params=param)
-        if (res["status"]=="OK"):
-            return res.json()
+        return res.json()
     except Exception as e:
         ret = {
             "error" : e,
-            "message" : "The Place Could Not Be Found"
+            "message" : "The Place Could Not Be Found",
+            "status": "ERROR"
         }
         return ret
 
@@ -34,8 +34,12 @@ def getweather(lat,lon):
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
-        res = "The Weather Could Not Be Found" + e
-        return res
+        ret = {
+            "error" : e,
+            "message" : "The Weather Could Not Be Found",
+            "status": "ERROR"
+        }
+        return ret
 
 def getforecast(lat,lon):
     try:
@@ -47,28 +51,37 @@ def getforecast(lat,lon):
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
-        res = "The Forecast Could Not Be Found" + e
-        return res
+        ret = {
+            "error" : e,
+            "message" : "The Forecast Could Not Be Found",
+            "status": "ERROR"
+        }
+        return ret
 
 @app.route('/weather', methods=['GET'])
 def index():
     if request.method == 'GET' :
         data= getplace(request.args.get('key'),request.args.get('query'))
-        lat = data['location']['lat']
-        lon = data['location']['lng']
-        res = getweather(lat,lon)
-        return jsonify(res)
+        print(data["status"])
+        if (data["status"]=='OK'):
+            lat = data["result"]["geometry"]['location']['lat']
+            lon = data["result"]["geometry"]['location']['lng']
+            res = getweather(lat,lon)
+            return jsonify(res)
+        else:
+            return jsonify(data)
 
 @app.route('/forecast', methods=['GET'])
 def home():
     if request.method == 'GET' :
         data= getplace(request.args.get('key'),request.args.get('query'))
-        lat = data['location']['lat']
-        lon = data['location']['lng']
-        res = getforecast(lat,lon)
-        return jsonify(res)
-
-# AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ
+        if (data["status"]=='OK'):
+            lat = data["result"]["geometry"]['location']['lat']
+            lon = data["result"]["geometry"]['location']['lng']
+            res = getforecast(lat,lon)
+            return jsonify(res)
+        else:
+            return jsonify(data)
 
 if __name__ == "__main__":
     app.run(port=5001)
