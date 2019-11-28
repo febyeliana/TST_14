@@ -18,7 +18,7 @@
   <link href="assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
 
-
+  <script src="assets/js/index.js"></script>
   
 </head>
 
@@ -28,25 +28,28 @@
 
 
 		<div class="row">
-			<div class="col-sm-12 col-lg-12">
-			<h2>Input Your Location:</h2>
-			<div class="input-group">
-				<input type="text" class="form-control">
-				<span class="input-group-btn">
-				<button class="btn btn-default" type="button">Search!</button>
-				</span>
-            </div>
-		</div>
+		  <div class="col-sm-12 col-lg-12">
+        <h1>WeLo</h1> 
+        <h5> Search location's weather </h5>
+        
+        <br>
+  			<h4>Input Your Location:</h4>
+  			<div class="input-group">
+          <input type="text" id="alamat" class="form-control" data-provide="typeahead">
+  				<span class="input-group-btn">
+  				<a class="btn btn-default" onclick="cari()">Search!</a>
+  				</span>
+        </div>
+		  </div>
+    </div>
 
 		<div class="row">
 			<div class="col-sm-12 col-lg-12">
-        	<h2>Weather in your location is:</h2>
-        	<div class="well">
-          		Rainy
-        	</div>
+        	<h4>Weather in your location is:</h4>
+          <input type="text" id="hasil" class="form-control" data-provide="typeahead">
       </div>
     </div>
-	</div>
+
 
 </body>
 
