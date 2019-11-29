@@ -69,7 +69,8 @@ def index():
             res = getweather(lat,lon)
             return jsonify(res)
         else:
-            return jsonify(data)
+
+            return jsonify(data),data["status_code"]
 
 @app.route('/forecast', methods=['GET'])
 def home():
@@ -81,7 +82,7 @@ def home():
             res = getforecast(lat,lon)
             return jsonify(res)
         else:
-            return jsonify(data)
+            return jsonify(data),data["status_code"]
 
 if __name__ == "__main__":
     app.run(port=5001)

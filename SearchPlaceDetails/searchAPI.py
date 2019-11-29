@@ -46,60 +46,49 @@ def searchapi(key,query,param='search'):
 
         
     except err.ZeroResultError as e:
-        message = {'results':
-        {
-            'status_code':404,
-            'message':e.msg,
-        },'status':e.status, 'html_attributions':[]
+        message = {
+        'status_code':404,
+        'message':e.msg,
+        'status':e.status, 'html_attributions':[]
         }
         return message
 
     except err.OverQueryError as e:
-        message = {'results':
-        {
-            'status_code':429,
-            
-            'message':e.msg,
-        },'status':e.status, 'html_attributions':[]
+        message = {
+        'status_code':429,    
+        'message':e.msg,
+        'status':e.status, 'html_attributions':[]
         }
         return message
 
     except err.RequestDeniedError as e:
-        message = {'results':
-        {
-            'status_code':401,
-            
-            'message':e.msg,
-        }, 'status':e.status,'html_attributions':[]
+        message = {
+        'status_code':401,    
+        'message':e.msg,
+        'status':e.status,'html_attributions':[]
         }
         return message
 
     except err.InvalidRequestError as e:
-        message = {'results':
-        {
-            'status_code':400,
-            
-            'message':e.msg,
-        }, 'status':e.status, 'html_attributions':[]
+        message = {
+        'status_code':400,    
+        'message':e.msg,
+        'status':e.status, 'html_attributions':[]
         }
         return message
     
     except err.UnknownError as e:
-        message = {'results':
-        {
-            'status_code':400,
-            
-            'message':e.msg,
-        }, 'status':e.status, 'html_attributions':[]
+        message = {
+        'status_code':400,   
+        'message':e.msg,
+        'status':e.status, 'html_attributions':[]
         }
         return message
 
     except err.NotFoundError as e:
-        message = {'results':
-        {
-            'status_code':404,
-            
-            'message':e.msg,
-        }, 'status':e.status, 'html_attributions':[]
+        message = {
+        'status_code':404,    
+        'message':e.msg,
+        'status':e.status, 'html_attributions':[]
         }
         return message
