@@ -6,6 +6,11 @@ const cari = async () => {
 	let result = await fetch('http://localhost:5001/weather?key=AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ&query=' +ina);
 	let json = await result.json();
   	let item = json;
+
+  	if (item.status_code >= 400 && item.status_code < 500 ) {
+    alert(item.message);
+    return;
+  	}
 	
 	let hasilElem = $('hasil');
 	hasilElem.value = item.weather[0].description;
@@ -64,6 +69,11 @@ const loadData = async () => {
 	let result = await fetch('http://localhost:5001/forecast?key=AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ&query=' + ina);
 	let json = await result.json();
 	let list = json.list;
+
+	if (json.status_code >= 400 && json.status_code <= 500 ) {
+	    alert(json.message);
+	    return;
+  	}
 
 	let table = document.getElementById('forecastTable');
 	table.innerHTML = '';
