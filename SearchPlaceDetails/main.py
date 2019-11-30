@@ -7,6 +7,8 @@ import urllib.parse
 class DetailHandler(BaseHTTPRequestHandler):
     def end_headers(self):
         self.send_header('Access-Control-Allow-Origin','*')
+        self.send_header('Access-Control-Allow-Methods','GET,POST,OPTIONS')
+        self.send_header('Access-Control-Allow-Headers','X-Requested-With')
         BaseHTTPRequestHandler.end_headers(self)
     
     def response_json(self,msg, statuscode=200):
