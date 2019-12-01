@@ -21,4 +21,4 @@ http://3.210.119.72:5005/
 3. Jika nama tempat tidak dapat dikenali, aplikasi dapat memberikan notifikasi bahwa tidak ada hasil pencarian cuaca atas nama tempat tersebut
 
 ## Dokumentasi
-Dokumentasi program, API log kerja dan berbagai informasi detail lainnya dapat dilihat pada file laporan tugas besar yang sudah dilampirkan pada repository ini
+Dokumentasi program, API, log kerja dan berbagai informasi detail lainnya dapat dilihat pada file laporan tugas besar yang sudah dilampirkan pada repository ini
