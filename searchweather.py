@@ -13,7 +13,7 @@ def getplace(key,query):
             'key':key,
             'query':query
         }
-        url = 'http://3.83.203.203:1234/search'
+        url = 'http://3.210.119.72:1234/search'
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
@@ -30,7 +30,7 @@ def getweather(lat,lon):
             'lat':lat,
             'lon':lon
         }
-        url = 'http://3.83.203.203:5000/weather'
+        url = 'http://3.210.119.72:5000/weather'
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
@@ -47,7 +47,7 @@ def getforecast(lat,lon):
             'lat':lat,
             'lon':lon
         }
-        url = 'http://3.83.203.203:5000/forecast'
+        url = 'http://3.210.119.72:5000/forecast'
         res = requests.get(url, params=param)
         return res.json()
     except Exception as e:
