@@ -3,7 +3,7 @@ const cari = async () => {
 	let alamatElem = $('alamat');
 	let ina = alamatElem.value;
 
-	let result = await fetch('http://localhost:5001/weather?key=AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ&query=' +ina);
+	let result = await fetch('http://3.210.119.72:5001/weather?key=AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ&query=' +ina);
 	let json = await result.json();
   	let item = json;
 
@@ -66,7 +66,7 @@ const loadData = async () => {
 	let $ = (id) => document.getElementById(id);
 	let alamatElem = $('alamat');
 	let ina = alamatElem.value;
-	let result = await fetch('http://localhost:5001/forecast?key=AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ&query=' + ina);
+	let result = await fetch('http://3.210.119.72:5001/forecast?key=AIzaSyCxQy3DFnDxNh3D_E8c0c1rrno_U_lzTcQ&query=' + ina);
 	let json = await result.json();
 	let list = json.list;
 
