@@ -20,5 +20,13 @@ http://3.210.119.72:5005/
 2. Setelah menekan tombol search, aplikasi akan memberikan data terkait weather dan forecast dari lokasi/tempat
 3. Jika nama tempat tidak dapat dikenali, aplikasi dapat memberikan notifikasi bahwa tidak ada hasil pencarian cuaca atas nama tempat tersebut
 
+## Stack
+1. Front End: HTML, CSS, Bootstrap dan Native Javascript
+2. Back End: Python 3.6.8
+3. Operating System: Red Hat Enterprise Linux 8
+4. Web Server: Nginx 1.14.1
+5. Virtual Machine: Amazon Web Service EC2
+
 ## Dokumentasi
-Dokumentasi program, API, log kerja dan berbagai informasi detail lainnya dapat dilihat pada file laporan tugas besar yang sudah dilampirkan pada repository ini
+Dokumentasi program, API, log kerja dan berbagai informasi detail lainnya dapat dilihat pada file [laporan tugas besar](https://github.com/febyeliana/TST_14/blob/master/Laporan%20Tugas%20Besar%20TST_Kelompok%2014.pdf)
+ yang sudah dilampirkan pada repository ini
